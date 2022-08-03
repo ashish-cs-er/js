@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script>
+            class Passenger{
+                constructor(firstname, lastname, frequestflyernum){
+                    this.firstname = firstname;
+                    this.lastname = lastname;
+                    this.frequestflyernum = frequestflyernum;
+                }
+            }
+            let passenger1 = new Passenger("John","Smith",1234);
+            console.log(passenger1);
+
+
+            class BMW{
+                constructor(make,model,year){
+                    this.make = make;
+                    this.model = model;
+                    this.year = year;
+                }
+
+                start(){
+                    console.log("Start ENgine");
+                }
+
+                stop(){
+                    console.log("Stop ENgine");
+                }
+            }
+
+            class ThreeSeries extends BMW{
+                constructor(make, model,year, cruiseControlEnabled){
+                    super(make,model,year);
+                    this.cruiseControlEnabled = cruiseControlEnabled;
+                }
+
+                //this is example of funtion overriding
+                start(){
+                    console.log("Lets remote start");
+                }
+            }
+
+            class FiveSeries extends BMW{
+                constructor(make,model,year, parkingAssist){
+                    super(make,model,year);
+                    this.parkingAssist = parkingAssist;
+                }
+            }
+
+            let threeSeries = new ThreeSeries("BMW","123",2020,true);
+            let fiveSeries = new FiveSeries("BMW","345",2020,true);
+
+            console.log(threeSeries.make);
+            console.log(threeSeries.model);
+            console.log(threeSeries.year);
+            console.log(threeSeries.cruiseControlEnabled);
+
+            threeSeries.start();
+
+            console.log(fiveSeries.make);
+            console.log(fiveSeries.model);
+            console.log(fiveSeries.year);
+            console.log(fiveSeries.parkingAssist);
+
+            fiveSeries.stop();
+        </script>
+    </head>
+    <body>
+        Classes in ES6   <br/>
+        we use extends to inherit in ES6
+
+    </body>
+</html>

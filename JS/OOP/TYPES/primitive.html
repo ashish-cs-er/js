@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script>
+            //primitive types stores values directly inside them
+            //object type stores reference of properties where values are stored
+            //if a var is declared and value not defined, automatically undefined value is assigned to it
+            //x=5
+            //y=x;
+            //y=123;
+            //this new value of y will not impact x
+            var custName="Customer";
+            var custBal = 5000;
+            var isValid = true;
+            var object = null;
+            var x = undefined;
+            var y;
+            x=123;
+            y=x;
+            y=456;
+            document.write("Customer Name: "+custName+"</br>");
+            document.write("Customer Bal: "+custBal+"</br>");
+            document.write("Customer Valid or inValid: "+isValid+"</br>");
+            document.write("object: "+object+"</br>");
+            document.write("value x: "+x+"</br>");
+            document.write("value y: "+y+"</br>");
+
+        
+            //to refer to type of data a variable holds we use typeof function
+            //works with almost all types except null values
+            //so to check for null type we use === operator
+            //=== not only compares values but also data types
+            document.write(typeof custName+"</br>");
+            document.write(typeof custBal+"</br>");
+            document.write((object===null)+"</br>");
+
+            //methods to be used with primitive types
+            var s1 = "Make Your Own Destiny";
+            //to convert to lowercase
+            document.write(s1.toLowerCase()+"</br>");
+            //to get substring
+            document.write(s1.substring(5,10)+"</br>");
+            document.write(s1.substring(5,11)+"</br>");
+            //charAt :to be used to find char at a particular index
+            document.write(s1.charAt(6)+"</br>");
+
+            //to convert primitive type to string we use toSring method
+            document.write(custBal.toString()+"</br>");
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

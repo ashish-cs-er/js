@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+            console.log("My first arrow function");
+            let x = () => { console.log("Hello From Arrow");};
+            x();
+
+            //passing parameters to arrow functions
+            let add = (n1,n2)=> n1+n2;
+            let sub = (n1,n2)=> n1-n2;
+            console.log(add(4,4));
+            console.log(sub(7,2));
+        </script>
+    </head>
+    <body>
+       This is about arrow functions in ES 6.<br/>
+       this provides us a super easy syntax to create anonymour functions<br/>
+       var doubleMe = (num) => num*2;   <br/>
+       by default the body(which is num*2) is returned by the function <br/>
+       if we want to explicitly return from the function <br/>
+       var doubleMe = (num) => { return num*2; }
+    </body>
+</html>

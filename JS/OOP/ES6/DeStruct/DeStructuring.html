@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+
+            //below is object destructuring
+            let student = {
+                firstName: "John",
+                lastName: "Bailey",
+                score: 90
+            };
+
+            //for objects we use curly braces
+            const {firstName: fname, lastName: lname, score : s} = student;
+            console.log(s);
+            //OR using just the property names in the object
+            const {firstName, lastName, score} = student;
+
+            //below is example of array destructuring
+            //for arrays we use square objects
+            const courses = ['Angular','React','Node'];
+            const [course1, course2, course3] = courses;
+            console.log(course3);
+
+            //one practical example
+            function add(options){
+                const {num1, num2, num3} = options;
+                console.log (num1+num2+num3);
+            }
+            add({num1:10, num2:20, num3:30});
+
+
+            let names = ["John","Smith","Reddy"];
+            for(let v of names){
+                //break and continue can be used with for-of loop
+                console.log(v);
+            }
+
+        </script>
+    </head>
+    <body>
+        This is about arrow destructuring in ES 6.<br/>
+        const {propertyToBeExtracted1: intoWhichtoBePut1} = objectToWhichPropertyBelongs   <br/>
+        for objects we use {}     <br/>
+        for arrays we use []     <br/>
+
+
+    </body>
+</html>

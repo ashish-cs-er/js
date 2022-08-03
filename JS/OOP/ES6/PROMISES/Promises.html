@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script>
+            function myAsyncFunc(){
+                let promise = new Promise(
+                    (resolve, reject)=>{
+                        let error = false;
+                        setTimeout(
+                            () => {
+                                console.log("Working Asynchronously");
+                                if(error){
+                                    reject("error has come");
+                                }
+                                else{
+                                    resolve("I have been successful");
+                                }
+                            }, 2000
+                        );
+                    }
+                );
+                return promise;
+            }
+
+            myAsyncFunc().then(  
+                (suc)=> console.log(suc),
+                (err)=>console.log(err)
+                );
+
+                myAsyncFunc().then(  
+                (suc)=> console.log(suc)
+                ).catch((err)=>console.log(err));
+        </script>
+    </head>
+    <body>
+        A Promise is like a placeholder to do something for somebody in future  <br/>
+        Helps in Asynchrounous programming      <br/>
+        Same functionality as that of callback but with lesser code<br/>
+        Takes one internal function as argument.   <br/>
+        The funtion in argument itself can have two parameters <br/>
+        which are resolve(which means work done) and reject which means error<br/>
+        THe promise must return something to be consumed by the then function. <br/>
+        the function.then will again contain two paramters as functions   <br/>
+        The first one for success function, the second one for error function.  <br/>
+        The data of resolve and reject becomes avaiable in success and error of then()     <br/>
+
+
+
+    </body>
+</html>

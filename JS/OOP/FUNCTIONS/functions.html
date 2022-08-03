@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <script>
+            //literal syntax is also called the declarative way
+            //in case of declarative syntax, the order of declaring and calling function is not taken into account\
+            //a function may be called even before it is declared and this is known as function hoisintg
+            //in function hoisting the function is put to the top of the scope it is present
+            function evenOrOdd(num){
+                if(num%2==0){
+                    return "even";
+                }
+                else{
+                    return "odd";
+                }
+            }
+            document.write(evenOrOdd(10)+"<br/>");
+
+            //in expression way the function is assigned to a variable
+            // the function is written on right hand side and wihtout name
+            //function hoisting does not happen in expression way of functions
+            var check = function (num3){
+                if(num3%2==0){
+                    return "even";
+                }
+                else{
+                    return "odd";
+                }
+            };
+            document.write("Expressive way result is: "+check(10)+"<br/>");
+
+            //functions in js are variables or ref types and 
+            //can be assigned to other vars or passed to other functions as parameter
+
+            //passing functions as parameter to other functions
+            var studentId = [10,20,5,30,100];
+            //by default the sort method of arrays converts these numbers to string and does the string comparison
+            //output is not going to be sorted list of student id
+            studentId.sort();
+
+            //to sort in correct order we will pass anonymous function inside inbuilt sort method
+            studentId.sort(function(n1,n2){
+                return n1-n2;
+            });
+            document.write(studentId+"<br/>");
+
+            //ARGUMENTS
+            //its array like structure that is available in js
+            //suppose functoin has only one named argument
+            //but function call is having more than one argument, there wont be any error, 
+            //the function will still be called but second argument will be ignored
+            //to get the value of second argument inside the function we use argument keyword
+
+            function newEvenOrOdd(num){
+                document.write(arguments.length+": number of arguments<br/>");
+                if(num%2==0){
+                    return "even";
+                }
+                else{
+                    return "odd";
+                }
+            }
+            newEvenOrOdd(10,11,12,13);
+
+            //every function has a property of length since function are objects they can have properties
+            //this length gives the number of named arguments the function possess
+            document.write(newEvenOrOdd.length+": named arguments length<br/>");
+
+
+            //function overloading
+            //if we have same function with different arguments, the js engine will pick the last function for execution
+            //this is made possible by arguments data structure available to every function using arguments.length
+            function add(n1,n2,n3){
+                return n1+n2+n3;
+            }
+            function add(n1,n2){
+                return n1+n2;
+            }
+            document.write("overloading add is: "+add(2,3,4)+"<br/>");
+
+
+            //Method Objects
+            //using functions inside body of object as properties
+            var newStd = {
+                id: 1,
+                name: "Bob",
+                display: function(){
+                    document.write("id: "+ newStd.id+"<br/>"),
+                    document.write("name: "+ newStd.name+"<br/>");
+                }
+            };
+            newStd.display();
+
+            //if the object newStd changes, the newStd.id and name along with function call to display also to be changed
+            //to avoid this we use this object
+            //this is available to functions as well as objects
+            //the second adv is other objects also can use the function which is common to them
+            var student1 = {
+                id: 1,
+                name: "Bob",
+                display: displayDtls
+            };
+            var student2 = {
+                id: 2,
+                name: "Smith",
+                display: displayDtls
+            };
+            function displayDtls(){
+                document.write("id: "+ this.id+"<br/>"),
+                document.write("name: "+ this.name+"<br/>");
+            }
+            student1.display();
+            student2.display();
+
+            //this is also available in gloable scope like Objects and Arrays and properties can be assigned to it
+            this.id = 3;
+            this.name = "Mary";
+            displayDtls();
+
+            //using call we can directly call the function
+            //syntax is function.call(object1)
+            //example is displayDtls.call(student1);
+            //for global this just invoke call method like displayDtls.call()
+
+            //apply is similar to call except the second argument has to be an array
+
+            //bind will bind the object to the function and will return a function which again needs to be called
+            function displayDtlsWithBind(testScore){
+                document.write("id: "+ this.id+"<br/>"),
+                document.write("name: "+ this.name+"<br/>");
+                document.write("testScore is: "+ testScore+"<br/>");
+            }
+
+            var bindFunc = displayDtlsWithBind.bind(student1);
+            bindFunc(10);
+            //OR
+            var bindFunc1 = displayDtlsWithBind.bind(student1,20);
+            bindFunc1();
+
+
+            
+
+        </script>
+    </head>
+    <body>
+        <h1>
+            All About Functions
+        </h1>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            let numbers = [1,4,8,21,15];
+            //demonstrating array.foreach
+
+            numbers.forEach(function (n){
+                console.log("The number is: "+n);
+            });
+
+            let doub_numbers = numbers.map(function(n){
+                return n*2;
+            });
+            console.log("The doubled array is: "+doub_numbers);
+
+            let filtered_numbers = numbers.filter(function(n){
+                if(n%2==0){
+                    return n;
+                }
+            });
+
+            console.log("I filtered even numbers in array: "+filtered_numbers);
+        </script>
+
+        
+    </head>
+    <body>
+        The foreach does not return any new array.   <br/>
+        The Map functions always iterates and returns a new array of the same length as that of original array.    <br/>
+        .filter() loops through (or iterates) through data, and filters out data that doesn't match the criteria that we set  <br/>
+        The filter also returns new array as per our criteria.  <br/>
+    </body>
+</html>

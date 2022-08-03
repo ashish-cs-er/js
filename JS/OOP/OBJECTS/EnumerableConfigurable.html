@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            var creditCard = {
+                name : "John"
+            }
+
+            Object.defineProperty(creditCard,"name",{enumerable:false});
+            console.log(Object.keys(creditCard));
+
+            //whether a property can be modified or not
+            //if set to false, property can neither be changed nor deleted
+            Object.defineProperty(creditCard,"name",{configurable:false});
+            delete creditCard.name;
+            console.log("name" in creditCard);
+
+            //data properties
+            //if we use defineProperty with our object by default the properties will be false
+            //why so?? because in js by default boolean has a false value
+            var anotherCard = {};
+            Object.defineProperty(anotherCard, "name",{
+                value: "John Smoother",
+                enumerable: true,
+                configurable: true,
+                writable: true
+            });
+
+            //getting all attributs of a property in an object
+            var desc = Object.getOwnPropertyDescriptor(anotherCard,"name");
+            console.log(desc);
+        </script>
+    </head>
+</html>

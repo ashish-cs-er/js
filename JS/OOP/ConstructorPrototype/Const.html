@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script>
+            document.write("Constructors are used to create n number of similar objects having similar properties which can be initialized");
+            document.write("Prototypes are a way to share the similar properties across multiple objects");
+            document.write("every object internally has constructor and prototype property");
+
+            function Flight(){
+
+            }
+            var flight1 = new Flight();
+            var flight2 = new Flight();
+            //if there are no arguments to be passed to const, the parenthesis can be removed
+            var flight3 = new Flight;
+            console.log(flight1 instanceof Flight);
+            console.log(flight2 instanceof Flight);
+            console.log(flight3 instanceof Flight);
+            console.log(flight1.constructor === Flight);
+
+            function Flights(airlines, flightNum){
+                this.airlines = airlines,
+                this.flightNum= flightNum,
+                this.display = function(){
+                    console.log(this.airlines);
+                    console.log(this.flightNum);   
+                };
+            }
+
+            var myFlight1 = new Flights("Indigo", "IDG123");
+            myFlight1.display();
+        </script>
+    </head>
+    <body>
+        Constructor and Prototype<br>
+        Constructor returns object of that particular type
+    </body>
+</html>

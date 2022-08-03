@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            let varMap = new Map();
+            varMap.set("eng",20);
+            varMap.set("Chem", 90);
+            varMap.set("Physics",88);
+
+            console.log(varMap.get("eng"));
+
+            //to get the size of map we use size method
+            console.log(varMap.size);
+
+            //to check if any key exists in Map, we use has
+            console.log(varMap.has("eng"));
+
+            //to delete any entry we use varmap.delete
+            varMap.delete("eng");
+            console.log(varMap.size);
+
+            //to remove all elements from Map, clear method is used
+            varMap.clear();
+            console.log(varMap.size);
+
+
+            //to get keys=>map.keys()
+            //to get values => map.values()
+            var map = new Map([["eng",99],["hindi",100],["science",98]]);
+            for(let v of map.keys()){
+                console.log("key:value is "+v+" : "+map.get(v))
+            }
+
+            //to get directly the key value paris we use map.entries()
+            //return as an array
+            for(let [k,v] of map.entries()){
+                console.log(k,v);
+            }
+        </script>
+    </head>
+    <body>
+        This is related to MAP Data Structure <br/>
+        Generally used to store key value pairs <br/>
+        let name = new Map();     <br/>
+        OR     <br/>
+        let name = new Map([["eng","200"],["hindi","500"]])
+        name.set("any name", "any value");     <br/>
+
+        to access values we use map_var.get("key_name");     <br/>
+    </body>
+</html>

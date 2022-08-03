@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            var pi = 3.14;
+            pi = 3.79
+            console.log(pi);
+
+            //if we want the value of pi to be not changes 
+            //we declare the var with const
+            //only object values can be re-assigned as they store references
+
+            const pyi = 3.14;
+            //pyi = 3;
+            //the above commented statement will give the following error
+            //Assignment to constant variable
+            //though properties of object can be modified
+            const obj = {};
+            obj.hello = "world";
+            console.log(obj.hello);
+
+            //to make the object properties also non-changeable
+            //we have to freeze the object
+            Object.freeze(obj);
+            
+        </script>
+    </head>
+    <body>
+        this is used when we want to use constants<br/>
+        creates immutable variables<br/>
+
+    </body>
+</html>

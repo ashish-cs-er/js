@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script>
+            var creditCard = {
+                _name : "John",
+                get name(){
+                    return this._name;
+                },
+                set name(val){
+                    this._name = val;
+                }
+            }
+
+            console.log(creditCard.name+" :using name instead of __name. we have used the getter");
+            creditCard.name = "Smith";
+            console.log(creditCard.name);
+
+
+            //using attributes with accessor
+            var newCard = {
+                _name = "Bob Test"
+            }
+
+            Object.defineProperty(newCard, "name", {
+                get: function(){
+                    return this._name;
+                },
+                set: function(val){
+                    this._name = val;
+                },
+                enumerable: true,
+                configurable: true,
+                writable: true
+            });
+
+            var anotherCard = {};
+            Object.defineProperties(anotherCard, {
+                _name: {
+                    value: "John",
+                    configurable: true,
+                    enumerable: true,
+                    writable: true
+                },
+                name: {
+                    get: function(){
+                        return this._name;
+                    },
+                    set: function(val){
+                        this._name= val;
+                    }
+                }
+            });
+
+            
+        </script>
+    </head>
+</html>

@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script>
+            var passenger = {
+                name : "John"
+            }
+            console.log("name" in passenger);
+            console.log(passenger.hasOwnProperty("name"));
+            //actualy hasOwnProperty is property passed from Object to passenger but the in operator does not care about it.
+            //it simply returns true whether the same is from Object or Passenger
+            console.log("hasOwnProperty" in passenger);
+            //this does a strict check.
+            console.log(passenger.hasOwnProperty("hasOwnProperty"));
+            //all properties are inherited from Object to child objects using Object.prototypes
+            //example Object.prototype.hasOwnProperty
+            console.log(Object.prototype.hasOwnProperty("hasOwnProperty"));
+
+            var myObj = { };
+            var prototype = Object.getPrototypeOf(myObj);
+            console.log(prototype === Object.prototype);
+
+            //using protoptype with object
+            function Flight(airline, airport){
+                this.airline = airline,
+                this.airport = airport
+            }
+
+            //this function will be shared by all the flight objects
+            Flight.prototype.display = function (){
+                console.log("airline is : "+this.airline);
+                console.log("airport is : "+this.airport);
+            };
+
+            flight1 = new Flight("Indigo","Delhi");
+            flight2= new Flight("vistara", "kolkata");
+            flight1.display();
+            flight2.display();
+
+            //to define multiple prototypes
+            function Student(rollno, marks, cls){
+                this.rollno = rollno;
+                this.marks = marks;
+                this.cls = cls;
+            }
+
+            Student.prototype = {
+                school: "Manav Mangal",
+                display: function (){
+                    console.log("Roll No: "+this.rollno);
+                    console.log("Marks: "+this.marks);
+                    console.log("School: "+this.school);
+                    console.log("Class: "+this.cls);
+                },
+            };
+
+            student1 = new Student("1","234","First");
+            student2 = new Student("1","123","Second");
+            student1.display();
+            student2.display();
+        </script>
+    </head>
+    <body>
+        Prototype is a property of an object used to share the object properties across multiple objects
+
+    </body>
+</html>

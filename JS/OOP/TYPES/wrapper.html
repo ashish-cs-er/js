@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+           var quote = "God helps those who helps themselves";
+           var s  = quote.substring(4,8);
+           //here js engine will create a temp var when quote.substring is called
+           //after creating string and using substring on it, the var will be destroyed
+
+
+           document.write(s);
+
+           //there are wrapper tyeps for String, Number and Boolean which happens automatically
+           //we should not use Wrapper types in our program bcoz they are meant for internal js engine
+        </script>
+    </head>
+    <body>
+        Wrapper type
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <script>
+            //this is all about ref type
+            //ref type is similar to class 
+            //once we create ref, we can create any number of objects of that ref type
+            //object is combination of name value pairs
+            //value can be any value including object or function
+            var obj1 = new Object();
+            //obj1 is a ref that stores memory location where the Object is stored
+            var obj2 = obj1;
+            obj1.myproperty = "Hello from Obj1 property";
+            document.write(obj1.myproperty+"<br/>");
+            //this happens because obj1 and obj2 point to same memory location
+            //to free up memory location we make the ref value null
+            obj1 = null;
+            obj2 = null;
+            var obj3= new Object();
+            obj3.salary = 50000;
+            document.write(obj3.salary);
+            obj3 = null;
+
+            //using inbuilt objects
+            var products = new Array();
+            var dt = new Date();
+            var err = new Error("something went wrong");
+            var func = new Function();
+            var regex = new RegExp();
+
+            //creating object using literal notation
+            var student = {
+                name: "Bob",
+                score: "80"
+            };
+
+            //alternative to above approach using new operator
+            var s2 = new Object();
+            s2.name = "Bob School";
+            document.write(student.name+"<br/>");
+
+            var patient = {
+                id: 1,
+                name: "Bob School"
+            };
+            document.write(patient.name+"<br/>");
+            patient=null;
+
+             //using literal syntax
+             var studentName = ["Bob","John","Harry"];
+             //using new operator
+             var stdName = new Array("Bob","John","Harry");
+
+             //function type
+             function hello(name){
+                document.write(name+"<br/>");
+             }
+             hello("hhhhhhhh");
+             //using new Operator
+             var newFunc = new Function("name","return 'Hello'+name");
+             document.write(newFunc("Kane Williamson")+"<br/>");
+
+             //regular expression
+             //starts with a forward slash and ends with a forward slash
+             //literal syntax
+             var regEx = /\d+/;
+             //with new Operator
+             //here we had to use \ to escape the \d. though its not required in literal syntax
+             var reg = new RegExp("\\d+");
+
+
+             //using instance of to compare the types of variables with inbuilt types
+             //Object is parent of all the ref types
+             document.write((hello instanceof Function)+" Function<br/>");
+             document.write((studentName instanceof Array)+" Array<br/>");
+
+             
+             
+
+             
+        </script>
+    </head>
+    <body>
+        Reference type
+    </body>
+</html>

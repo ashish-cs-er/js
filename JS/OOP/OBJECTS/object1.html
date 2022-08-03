@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <script>
+            var course1 = {
+                name: "js fundamentals" //internally js engine calls put to store the properties in variables
+            };
+
+            var course2 = {
+                name:"React js"
+            }
+
+            //changing the property value
+            course1.name = "JAVA Fundamentals"; //now it will call set method
+            course1.description = "Master Java Projects"; //now put will be called because new property is being assigned value
+
+            //in operator : used to check if a property exists in object
+            console.log("name" in course1);
+
+            //in js every object we create is subset of Object 
+            //so toString() will always be available with every object
+            //to check for a particular property is owned by object and not inherited, we use hasOwnProperty mehtod
+            console.log(course1.hasOwnProperty("toString"));
+
+            //to delete a property from object we use delete keyword
+            delete course1.description;
+            console.log(course1.hasOwnProperty("description")+" :to check if deleted or not");
+
+            course1.description = "Master Java Projects"; 
+
+            //for every property there is a flag called enumerable that means it can be traversed and set to true
+            for(var eachProperty in course1){
+                console.log(eachProperty+" "+course1[eachProperty]);
+            }
+
+
+            //for retrieving just the keys, the parent Object provide method keys which accepts the object and returns array
+            var allProps = Object.keys(course1);
+            console.log(allProps);
+
+            //most of inbuilt ref types have properties which are not enumerable
+            //to check for enumerability we use propertyIsEnumerable
+            console.log(course1.propertyIsEnumerable("name")+" : checking for enumerability");
+
+            console.log(allProps.propertyIsEnumerable("length")+" : length enumerability");
+
+            //concept of extensibility
+            //if true, new properties and functions can be added to object
+            //if false, the above cannot be done. Lets c
+            //three ways to make non extensible are: non extensible, freeze, seal
+
+            //1. non extensible
+            var prod = {
+                name: "Iphone"
+            };
+            console.log(Object.isExtensible(prod)+": Extensible or Not");
+            Object.preventExtensions(prod);
+            console.log(Object.isExtensible(prod)+": Extensible or Not");
+            prod.price = 300;
+            //will not be added since preventExtensions has been set
+            console.log(prod);
+
+            //2. Seal: non extensible and non configurable. cannot delete any existing property
+            var sealProd = {
+                name : "Android"
+            };
+            console.log(Object.isExtensible(sealProd));
+            console.log(Object.isSealed(sealProd));
+            Object.seal(sealProd);
+            console.log(Object.isExtensible(sealProd)+": after seal");
+            console.log(Object.isSealed(sealProd)+": after seal");
+
+            //3.Freeze: non extensible, non configurable, non writable, non modifiable
+            var freezeProd = {
+                name: "Blackberry"
+            };
+            Object.freeze(freezeProd);
+            console.log(Object.isFrozen(freezeProd)+" : checking freeze");
+            console.log(Object.isExtensible(freezeProd)+" : checking freeze");
+            console.log(Object.isSealed(freezeProd)+" : checking freeze");
+            var descriptor1 = Object.getOwnPropertyDescriptor(freezeProd,"name");
+            console.log(descriptor1.configurable);
+
+            var License = {};
+            Object.defineProperties(License,{
+                "name":{
+                    enumerable: false
+                },
+                "number":{
+                    configurable: false
+                }
+            });
+            var desc1 = Object.getOwnPropertyDescriptor(License, "name");
+            var desc2 = Object.getOwnPropertyDescriptor(License, "number");
+            for(var i in desc1){
+                console.log(i+" : "+desc1[i]);
+            }
+
+            for(var j in desc2){
+                console.log(j+" : "+desc1[j]);
+            }
+
+            console.log(License.name);
+            Object.seal(License);
+            License.place = "New Place";
+            console.log(License);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <script>
+            //in the below example, only name property exists on the project variable
+            //but other properties are inherited from Object class  
+            var project = {
+                name: "Inheritance project"
+            };
+            console.log(project.hasOwnProperty("name"));
+
+            //using Object.create method
+            var project1 = {
+                name : "Road WOrks",
+                display: function(){
+                    console.log(this.name);
+                }
+            };
+            var project2 = Object.create(project1, {
+                name: {
+                    configurable: true,
+                    enumerable : true,
+                    writable: true,
+                    value : "Bridge Works"
+                }
+            });
+
+            project1.display();
+            project2.display();
+
+            function Doctor(name){
+                this.name = name;
+            } 
+            Doctor.prototype.treat = function(){
+                return ("treated");
+            }
+            Doctor.prototype.toString = function(){
+                return "Doctor is: "+this.name;
+            }
+
+            function Surgeon(name, type){
+                this.name = name;
+                this.type = type
+            }
+
+            Surgeon.prototype = new Doctor();
+            Surgeon.prototype.toString = function(){
+                return "Surgeon: "+this.name+" : "+this.type;
+            }
+            var doctor = new Doctor("John");
+            var surgeon = new Surgeon("Smith", "Dental");
+            console.log(doctor.treat());
+            console.log(surgeon.treat());
+            console.log(doctor.toString());
+            console.log(surgeon.toString());
+            console.log(doctor instanceof Doctor);
+            console.log(doctor instanceof Object);
+
+            console.log(surgeon instanceof Doctor);
+            console.log(surgeon instanceof Surgeon);
+            console.log(surgeon instanceof Object);
+
+            function Car(make, year){
+                this.make = make;
+                this.year = year;
+                this.drive = function (){
+                    return "lets go";
+                }
+            }
+            function Honda(make, year){
+                Car.call(this, make, year);
+            }
+            function BMW(make, year){
+                Car.call(this, make, year);
+            }
+
+            Honda.prototype = new Car();
+            Honda.prototype.constructor = Honda;
+            BMW.prototype = new Car();
+            BMW.prototype.constructor = BMW;
+            Honda.prototype.toString = function(){
+                return "Honda is: "+this.make+this.year+this.drive();
+            }
+            BMW.prototype.toString = function(){
+                return "BMW is: "+this.make+this.year+this.drive();
+            }
+            var honda = new Honda("Honda", "YEAR");
+            var bmw = new BMW("BMW", "YEAR");
+            console.log(honda.toString());
+            console.log(bmw.toString());
+            
+        </script>
+
+        
+    </head>
+</html>

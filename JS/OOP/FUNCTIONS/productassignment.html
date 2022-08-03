@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script>
+            document.write(multiplyMe(10,20)+" multiplication with function hoisting<br/>");
+            function multiplyMe(num1,num2){
+                return num1*num2;
+            }
+
+            var multiplyRes = function(n1,n2){
+                return n1*n2;
+            }
+            document.write("Result with Expression syntax is: "+multiplyRes(10,30)+"<br/>");
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script>
+            var account = (function(){
+                var balance = 1000;
+
+                function getBal(){
+                    return balance;
+                }
+
+                function addInterest(interest){
+                    balance+=interest;
+                }
+
+                return {
+                    name: "John",
+                    getBal : getBal,
+                    addInterest : addInterest
+                };
+            }());
+
+            console.log(account.name);
+
+            //the below statement cannot change value since it is private property
+            account.balance = 2000;
+            console.log(account.getBal());
+            account.addInterest(500);
+            console.log(account.getBal());
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
